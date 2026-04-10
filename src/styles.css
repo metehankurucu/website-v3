@@ -1,0 +1,191 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource/source-serif-4/400.css";
+@import "@fontsource/source-serif-4/400-italic.css";
+@import "@fontsource-variable/jetbrains-mono";
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ───────────────────────────────────────────────────
+   Theme: Editorial Precision + Engineering Craft
+   Cursor warm palette + Codixus motion philosophy
+   ─────────────────────────────────────────────────── */
+
+@theme {
+  --font-display: "Inter Variable", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", monospace;
+
+  --color-accent: #6b6d78;
+  --color-accent-hover: #565860;
+
+}
+
+/* ───── Light Mode ───── */
+:root {
+  --background: #f2f1ed;
+  --foreground: #26251e;
+  --card: #f7f7f4;
+  --card-foreground: #26251e;
+  --muted: #ebeae5;
+  --muted-foreground: rgba(38, 37, 30, 0.5);
+  --border: rgba(38, 37, 30, 0.08);
+  --border-strong: rgba(38, 37, 30, 0.16);
+  --input: rgba(38, 37, 30, 0.08);
+  --ring: #26251e;
+  --surface-1: #f7f7f4;
+  --surface-2: #f2f1ed;
+  --surface-3: #ebeae5;
+  --surface-4: #e6e5e0;
+  color-scheme: light;
+}
+
+/* ───── Dark Mode ───── */
+.dark {
+  --background: #1a1917;
+  --foreground: #f2f1ed;
+  --card: #222120;
+  --card-foreground: #f2f1ed;
+  --muted: #2a2926;
+  --muted-foreground: rgba(242, 241, 237, 0.45);
+  --border: rgba(242, 241, 237, 0.07);
+  --border-strong: rgba(242, 241, 237, 0.14);
+  --input: rgba(242, 241, 237, 0.07);
+  --ring: #f2f1ed;
+  --surface-1: #222120;
+  --surface-2: #1a1917;
+  --surface-3: #2a2926;
+  --surface-4: #333230;
+  color-scheme: dark;
+}
+
+/* ───── Base ───── */
+* {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+html, body, #app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+/* ───── Container ───── */
+@utility container {
+  margin-inline: auto;
+  max-width: 1200px;
+  padding-inline: 1.25rem;
+}
+
+@utility container-narrow {
+  margin-inline: auto;
+  max-width: 800px;
+  padding-inline: 1.25rem;
+}
+
+/* ───── Section Spacing ───── */
+@utility section-spacing {
+  padding-block: 5rem;
+}
+
+/* ───── Display Typography ───── */
+@utility display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+@utility display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+@utility display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+@utility display-sm {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+@utility kicker {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+@utility label {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ───── Responsive ───── */
+@media (min-width: 640px) {
+  .container, .container-narrow {
+    padding-inline: 2rem;
+  }
+  .section-spacing {
+    padding-block: 7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container, .container-narrow {
+    padding-inline: 2.5rem;
+  }
+  .section-spacing {
+    padding-block: 7rem;
+  }
+}
+
+
+/* ───── Clickable elements ───── */
+a, button, [role="button"], input[type="submit"], select, summary {
+  cursor: pointer;
+}
+
+/* ───── Selection ───── */
+::selection {
+  background: rgba(42, 95, 122, 0.15);
+}
+
+/* ───── Scrollbar ───── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-strong);
+  border-radius: 9999px;
+}
