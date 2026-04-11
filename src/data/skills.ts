@@ -22,7 +22,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     label: "Tooling",
-    skills: ["Bun", "Vite", "Turborepo", "ESLint", "Prettier"],
+    skills: ["Bun", "Vite", "Turborepo", "ESLint", "Prettier", "Vitest", "Jest"],
   },
   {
     label: "Backend",
@@ -35,6 +35,7 @@ export const skillCategories: SkillCategory[] = [
       "Agentic Workflows",
       "Vercel AI SDK",
       "Prompt Engineering",
+      "Agent Skills",
       "RAG",
       "MCP",
     ],
@@ -46,6 +47,7 @@ export const skillCategories: SkillCategory[] = [
       "DigitalOcean",
       "Cloudflare",
       "Railway",
+      "Netlify",
       "Docker",
       "Redis",
       "MongoDB",
@@ -64,6 +66,7 @@ export const skillCategories: SkillCategory[] = [
       "Fal",
       "Resend",
       "RevenueCat",
+      "Adapty"
       "Lemonsqueezy",
       "Stripe",
       "Notion",
