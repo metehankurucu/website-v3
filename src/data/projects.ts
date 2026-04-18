@@ -34,7 +34,7 @@ export const codixusProducts: Project[] = [
     subtitle: "AI Curtain Designer",
     description:
       "Instant curtain design with AI. Upload a photo, visualize new curtains in seconds.",
-    categories: ["apps"],
+    categories: ["featured", "apps"],
     technologies: [],
     links: { live: "https://curtainai.app" },
     parentBrand: "codixus",
@@ -129,6 +129,21 @@ export const projects: Project[] = [
       live: "https://litemetrics.dev",
       github: "https://github.com/metehankurucu/litemetrics",
     },
+  },
+  {
+    slug: "react-shot",
+    title: "react-shot",
+    subtitle: "Screenshot SDK for React",
+    description:
+      "Declarative React SDK for App Store and Play Store screenshots. Preview in the browser, export PNGs with one command. Built for AI agents.",
+    categories: ["featured", "open-source"],
+    technologies: ["TypeScript", "React", "Puppeteer"],
+    links: {
+      live: "https://react-shot.codixus.dev",
+      github: "https://github.com/codixus/react-shot",
+      npm: "https://www.npmjs.com/package/react-shot",
+    },
+    parentBrand: "codixus",
   },
   {
     slug: "revcat",

@@ -66,7 +66,7 @@ export const skillCategories: SkillCategory[] = [
       "Fal",
       "Resend",
       "RevenueCat",
-      "Adapty"
+      "Adapty",
       "Lemonsqueezy",
       "Stripe",
       "Notion",
