@@ -14,7 +14,7 @@ export function MetricsBar() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
             {metrics.map((metric) => (
               <div key={metric.label} className="text-center">
-                <p className="font-[var(--font-display)] text-3xl font-bold tracking-tight text-[var(--foreground)] md:text-4xl">
+                <p className="font-[var(--font-display)] text-3xl font-bold tracking-tight tabular-nums text-[var(--foreground)] md:text-4xl">
                   {metric.value}
                 </p>
                 <p className="mt-1 font-[var(--font-display)] text-sm text-[var(--muted-foreground)]">

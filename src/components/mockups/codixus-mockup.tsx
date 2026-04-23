@@ -43,7 +43,7 @@ export function CodixusMockup() {
               <p className="font-[var(--font-mono)] text-[8px] text-[var(--muted-foreground)]">
                 {s.label}
               </p>
-              <p className="mt-0.5 font-[var(--font-display)] text-[14px] font-bold text-[var(--foreground)]">
+              <p className="mt-0.5 font-[var(--font-display)] text-[14px] font-bold tabular-nums text-[var(--foreground)]">
                 {s.value}
               </p>
             </div>
@@ -70,7 +70,7 @@ export function CodixusMockup() {
                   </p>
                 </div>
               </div>
-              <span className="font-[var(--font-mono)] text-[10px] text-[var(--muted-foreground)]">
+              <span className="font-[var(--font-mono)] text-[10px] tabular-nums text-[var(--muted-foreground)]">
                 {p.users}
               </span>
             </div>

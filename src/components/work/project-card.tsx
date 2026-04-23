@@ -47,7 +47,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <img
             src={imageSrc}
             alt={project.title}
-            className="h-full w-full object-contain"
+            className="h-full w-full object-contain ring-1 ring-inset ring-white/10"
             loading="lazy"
           />
         </a>

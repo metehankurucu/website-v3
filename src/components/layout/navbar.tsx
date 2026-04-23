@@ -24,7 +24,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-200",
+        "fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-200",
         scrolled
           ? "border-b border-[var(--border)] bg-[var(--background)]/85 backdrop-blur-xl"
           : "bg-transparent",
@@ -62,7 +62,7 @@ export function Navbar() {
           <ThemeToggle />
           <Link
             to="/contact"
-            className="rounded-full bg-[var(--foreground)] px-4 py-1.5 font-[var(--font-display)] text-xs font-medium text-[var(--background)] no-underline transition-opacity hover:opacity-85"
+            className="rounded-full bg-[var(--foreground)] px-4 py-1.5 font-[var(--font-display)] text-xs font-medium text-[var(--background)] no-underline transition-[opacity,transform] hover:opacity-85 active:scale-[0.96]"
           >
             Get in Touch
           </Link>

@@ -24,10 +24,10 @@ export function LitemetricsMockup() {
             <p className="font-[var(--font-display)] text-[10px] text-[var(--muted-foreground)]">
               {m.label}
             </p>
-            <p className="mt-1 font-[var(--font-display)] text-lg font-bold text-[var(--foreground)]">
+            <p className="mt-1 font-[var(--font-display)] text-lg font-bold tabular-nums text-[var(--foreground)]">
               {m.value}
             </p>
-            <p className="font-[var(--font-mono)] text-[10px] text-[#5a9a6a]">
+            <p className="font-[var(--font-mono)] text-[10px] tabular-nums text-[#5a9a6a]">
               {m.change}
             </p>
           </div>
