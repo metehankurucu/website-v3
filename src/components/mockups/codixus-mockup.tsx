@@ -32,7 +32,7 @@ export function CodixusMockup() {
         <div className="grid grid-cols-3 border-b border-[var(--border)]">
           {[
             { label: "Products", value: "6" },
-            { label: "Total Users", value: "68K" },
+            { label: "Total Users", value: "56K" },
             { label: "Revenue", value: "+24%" },
           ].map((s) => (
             <div

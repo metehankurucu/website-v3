@@ -13,10 +13,29 @@ export interface Project {
   metrics?: string;
   image?: string;
   parentBrand?: string;
+  /**
+   * Shipped, then taken off the stores. It stays listed as past work, but it
+   * never gets a link: the store page is gone and the site it points at is no
+   * longer something to send people to. Cards render a Discontinued badge and
+   * an unlinked title, which `links: {}` already produces on its own.
+   */
+  discontinued?: boolean;
 }
 
 // Codixus products (shown inside Codixus card in Featured, also in Apps)
 export const codixusProducts: Project[] = [
+  {
+    slug: "flast",
+    title: "Flast",
+    subtitle: "AI Companion",
+    description:
+      "AI companion with persistent memory across sessions, multi-agent workflows, and one-click artifact publishing. Shipped on iOS, Android, and web, then discontinued in 2026.",
+    categories: ["apps"],
+    technologies: [],
+    links: {},
+    parentBrand: "codixus",
+    discontinued: true,
+  },
   {
     slug: "curtain-ai",
     title: "Curtain AI",

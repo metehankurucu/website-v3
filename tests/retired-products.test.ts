@@ -4,12 +4,18 @@ import { fileURLToPath } from "node:url";
 import { describe, expect, test } from "vitest";
 import { codixusProducts, projects } from "../src/data/projects";
 
-// Flast was removed from sale on the App Store and Play Store on 2026-08-09,
-// so this site can no longer show it as shipped work. flast.ai itself stays
-// live and is out of scope.
+// Flast was removed from sale on the App Store and Play Store on 2026-08-09.
+// It deliberately STAYS listed here as past work, because this is a portfolio
+// and shipping it was real experience. What it must never have again is a link:
+// the store listing is gone, so a link is a promise the site cannot keep.
 //
-// The same pass renamed Impostor Who? to Bluffin, which the product had already
-// been renamed to on codixus.com while this site kept the old name.
+// So the invariant is not "Flast is absent" but "Flast is never linked". Naming
+// it in prose is fine and expected. The test pins both directions, because both
+// can regress: someone could re-add the link, or someone could finish the
+// cleanup by deleting the entry that was meant to stay.
+//
+// The same pass renamed Impostor Who? to Bluffin. That one IS a pure rename, so
+// the old brand name should be gone entirely.
 //
 // The registry check at the bottom is the one that matters most. Mockups are
 // looked up by slug through a plain string-keyed record, so a slug that no
@@ -19,13 +25,15 @@ import { codixusProducts, projects } from "../src/data/projects";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SRC_DIR = join(ROOT, "src");
 
-const RETIRED = [
-  { label: "Flast", pattern: /\bflast\b/i },
+/** Retired products may be named, but their sites must never be linked. */
+const RETIRED_HOSTS = [
   { label: "flast.ai", pattern: /flast\.ai/i },
+  { label: "promptjr.app", pattern: /promptjr\.app/i },
 ];
 
+/** A real rename: the old brand name should not survive anywhere. */
 const RENAMED = [
-  { label: "Impostor Who?", pattern: /impostor\s*who/i },
+  { label: "Impostor Who?", pattern: /impostor[\s-]*who/i },
   { label: "impostorwho.com", pattern: /impostorwho\.com/i },
 ];
 
@@ -58,7 +66,9 @@ function hits(pattern: RegExp): string[] {
   return found;
 }
 
-describe("retired and renamed products", () => {
+const allProjects = [...codixusProducts, ...projects];
+
+describe("retired products are listed but never linked", () => {
   test("the source sweep actually found files", () => {
     // Guards against a walk that returns nothing and makes every check pass.
     const files = sourceFiles();
@@ -66,12 +76,31 @@ describe("retired and renamed products", () => {
     expect(files.some((f) => f.endsWith("data/projects.ts"))).toBe(true);
   });
 
-  for (const { label, pattern } of RETIRED) {
-    test(`no source file mentions ${label}`, () => {
+  for (const { label, pattern } of RETIRED_HOSTS) {
+    test(`no source file links to ${label}`, () => {
       expect(hits(pattern)).toEqual([]);
     });
   }
 
+  test("every discontinued project carries no live link", () => {
+    const linked = allProjects
+      .filter((p) => p.discontinued)
+      .filter((p) => p.links.live !== undefined)
+      .map((p) => p.slug);
+    expect(linked).toEqual([]);
+  });
+
+  test("Flast is still listed as past work", () => {
+    // The retirement decision was to keep the experience, not erase it. If a
+    // later cleanup drops this entry, that is a decision to make on purpose.
+    const flast = allProjects.find((p) => p.slug === "flast");
+    expect(flast).toBeDefined();
+    expect(flast?.discontinued).toBe(true);
+    expect(flast?.categories).not.toContain("featured");
+  });
+});
+
+describe("the Bluffin rename left nothing behind", () => {
   for (const { label, pattern } of RENAMED) {
     test(`no source file still says ${label}`, () => {
       expect(hits(pattern)).toEqual([]);
@@ -102,11 +131,7 @@ describe("mockup registry stays in step with project slugs", () => {
   }
 
   test("every registry key matches a real project slug", () => {
-    const slugs = new Set([
-      ...codixusProducts.map((p) => p.slug),
-      ...projects.map((p) => p.slug),
-      "codixus",
-    ]);
+    const slugs = new Set([...allProjects.map((p) => p.slug), "codixus"]);
     const orphans = registryKeys().filter((key) => !slugs.has(key));
     expect(orphans).toEqual([]);
   });

@@ -124,33 +124,53 @@ function FeaturedView() {
               Products
             </p>
             <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-              {codixusProducts.map((product, i) => (
-                <motion.a
-                  key={product.slug}
-                  href={product.links.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.3,
-                    delay: i * 0.05,
-                    ease: "easeOut",
-                  }}
-                  className="group/product rounded-lg border border-[var(--border)] bg-[var(--background)] p-4 no-underline transition-colors hover:border-[var(--border-strong)]"
-                >
-                  <div className="flex items-start justify-between">
-                    <h4 className="font-[var(--font-display)] text-sm font-bold text-[var(--foreground)]">
-                      {product.title}
-                    </h4>
-                    <ArrowUpRight className="h-3.5 w-3.5 text-[var(--muted-foreground)] opacity-0 transition-opacity group-hover/product:opacity-100" />
-                  </div>
-                  <p className="mt-1.5 text-xs leading-relaxed text-[var(--muted-foreground)]">
-                    {product.description}
-                  </p>
-                </motion.a>
-              ))}
+              {codixusProducts.map((product, i) => {
+                // A discontinued product renders as a plain tile, not an
+                // anchor: there is nowhere live to send people. Leaving it an
+                // <a> with an undefined href would still show the hover
+                // affordance and read as clickable.
+                const href = product.links.live;
+                const Tile = href ? motion.a : motion.div;
+                return (
+                  <Tile
+                    key={product.slug}
+                    {...(href
+                      ? {
+                          href,
+                          target: "_blank",
+                          rel: "noopener noreferrer",
+                        }
+                      : {})}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.3,
+                      delay: i * 0.05,
+                      ease: "easeOut",
+                    }}
+                    className={`group/product rounded-lg border border-[var(--border)] bg-[var(--background)] p-4 no-underline transition-colors${
+                      href ? " hover:border-[var(--border-strong)]" : ""
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <h4 className="font-[var(--font-display)] text-sm font-bold text-[var(--foreground)]">
+                        {product.title}
+                      </h4>
+                      {product.discontinued ? (
+                        <span className="shrink-0 rounded-full border border-[var(--border-strong)] px-2 py-0.5 font-[var(--font-mono)] text-[9px] uppercase tracking-wide text-[var(--muted-foreground)]">
+                          Discontinued
+                        </span>
+                      ) : (
+                        <ArrowUpRight className="h-3.5 w-3.5 text-[var(--muted-foreground)] opacity-0 transition-opacity group-hover/product:opacity-100" />
+                      )}
+                    </div>
+                    <p className="mt-1.5 text-xs leading-relaxed text-[var(--muted-foreground)]">
+                      {product.description}
+                    </p>
+                  </Tile>
+                );
+              })}
             </div>
             <div className="mt-5">
               <a
