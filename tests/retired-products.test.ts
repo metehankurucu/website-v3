@@ -139,4 +139,19 @@ describe("mockup registry stays in step with project slugs", () => {
   test("the key parser found the registry it claims to read", () => {
     expect(registryKeys().length).toBeGreaterThan(3);
   });
+
+  test("the home page featured product resolves to a real slug", () => {
+    // featured-work.tsx picks its second featured card with
+    // codixusProducts.find(...)! so a slug that no longer exists is not a type
+    // error, it is `undefined` reaching a component that reads project.links,
+    // which white-screens the home page.
+    const source = readFileSync(
+      join(SRC_DIR, "components", "home", "featured-work.tsx"),
+      "utf8",
+    );
+    const picked = source.match(/p\.slug === "([a-z0-9-]+)"/);
+    expect(picked).not.toBeNull();
+    const slug = picked?.[1];
+    expect(codixusProducts.some((p) => p.slug === slug)).toBe(true);
+  });
 });
