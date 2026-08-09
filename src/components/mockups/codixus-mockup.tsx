@@ -1,7 +1,6 @@
 const products = [
-  { name: "Flast", desc: "AI Companion", users: "12K" },
   { name: "Curtain AI", desc: "Home Designer", users: "8K" },
-  { name: "Impostor Who?", desc: "Party Game", users: "45K" },
+  { name: "Bluffin", desc: "Party Game", users: "45K" },
   { name: "FiberCheck", desc: "Fabric Analyzer", users: "3K" },
 ];
 

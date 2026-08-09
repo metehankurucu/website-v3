@@ -18,17 +18,6 @@ export interface Project {
 // Codixus products (shown inside Codixus card in Featured, also in Apps)
 export const codixusProducts: Project[] = [
   {
-    slug: "flast",
-    title: "Flast",
-    subtitle: "AI Companion",
-    description:
-      "Your AI companion. Search the web, create images, videos, documents. Built-in todo, memory, and reusable prompts.",
-    categories: ["featured", "apps"],
-    technologies: [],
-    links: { live: "https://flast.ai" },
-    parentBrand: "codixus",
-  },
-  {
     slug: "curtain-ai",
     title: "Curtain AI",
     subtitle: "AI Curtain Designer",
@@ -40,14 +29,14 @@ export const codixusProducts: Project[] = [
     parentBrand: "codixus",
   },
   {
-    slug: "impostor-who",
-    title: "Impostor Who?",
+    slug: "bluffin",
+    title: "Bluffin",
     subtitle: "Secret Word Party Game",
     description:
-      "Secret word party game. Catch impostors or play solo challenges. 20+ languages supported.",
+      "Secret word party game. Catch impostors or play solo challenges. 16+ languages supported.",
     categories: ["apps"],
     technologies: [],
-    links: { live: "https://impostorwho.com" },
+    links: { live: "https://bluffin.app" },
     parentBrand: "codixus",
   },
   {
@@ -56,7 +45,7 @@ export const codixusProducts: Project[] = [
     subtitle: "AI Fabric Analyzer",
     description:
       "Scan labels or fabrics with AI for health scores, toxic materials, and environmental impact.",
-    categories: ["apps"],
+    categories: ["featured", "apps"],
     technologies: [],
     links: { live: "https://fibercheck.app" },
     parentBrand: "codixus",

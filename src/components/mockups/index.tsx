@@ -4,9 +4,8 @@ import { CodixusMockup } from "./codixus-mockup"
 import { LitemetricsMockup } from "./litemetrics-mockup"
 import { RevcatMockup } from "./revcat-mockup"
 import { ReactShotMockup } from "./react-shot-mockup"
-import { FlastMockup } from "./flast-mockup"
 import { CurtainMockup } from "./curtain-mockup"
-import { ImpostorMockup } from "./impostor-mockup"
+import { BluffinMockup } from "./bluffin-mockup"
 import { FibercheckMockup } from "./fibercheck-mockup"
 
 export { HeroMockup }
@@ -16,9 +15,8 @@ export const projectMockups: Record<string, ComponentType> = {
   litemetrics: LitemetricsMockup,
   revcat: RevcatMockup,
   "react-shot": ReactShotMockup,
-  flast: FlastMockup,
   "curtain-ai": CurtainMockup,
-  "impostor-who": ImpostorMockup,
+  bluffin: BluffinMockup,
   fibercheck: FibercheckMockup,
 }
 
