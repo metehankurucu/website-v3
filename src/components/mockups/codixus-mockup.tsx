@@ -1,7 +1,6 @@
 const products = [
-  { name: "Flast", desc: "AI Companion", users: "12K" },
   { name: "Curtain AI", desc: "Home Designer", users: "8K" },
-  { name: "Impostor Who?", desc: "Party Game", users: "45K" },
+  { name: "Bluffin", desc: "Party Game", users: "45K" },
   { name: "FiberCheck", desc: "Fabric Analyzer", users: "3K" },
 ];
 
@@ -33,7 +32,7 @@ export function CodixusMockup() {
         <div className="grid grid-cols-3 border-b border-[var(--border)]">
           {[
             { label: "Products", value: "6" },
-            { label: "Total Users", value: "68K" },
+            { label: "Total Users", value: "56K" },
             { label: "Revenue", value: "+24%" },
           ].map((s) => (
             <div

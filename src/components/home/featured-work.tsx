@@ -6,8 +6,8 @@ import { codixusBrand, codixusProducts } from "#/data/projects";
 import type { Project } from "#/data/projects";
 import { projectMockups, projectImages } from "#/components/mockups";
 
-const flast = codixusProducts.find((p) => p.slug === "flast")!;
-const featured = [codixusBrand, flast];
+const fibercheck = codixusProducts.find((p) => p.slug === "fibercheck")!;
+const featured = [codixusBrand, fibercheck];
 
 function FeaturedCard({ project, index }: { project: Project; index: number }) {
   const primaryLink = project.links.live || project.links.github;

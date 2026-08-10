@@ -59,6 +59,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <span className="font-[var(--font-display)] text-[11px] text-[var(--muted-foreground)]">
             {project.subtitle || getCategoryLabel(project)}
           </span>
+          {project.discontinued && (
+            <span className="rounded-full border border-[var(--border-strong)] px-2 py-0.5 font-[var(--font-mono)] text-[10px] uppercase tracking-wide text-[var(--muted-foreground)]">
+              Discontinued
+            </span>
+          )}
           {hasLinks && (
             <div className="flex items-center gap-2">
               {project.links.github && (

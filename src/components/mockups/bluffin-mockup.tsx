@@ -1,9 +1,9 @@
 import { useState } from "react"
 
-const categories = ["Mixed", "Anime", "K-Pop", "Movies", "Sports", "Science"]
+const categories = ["Mixed", "Anime", "K-Pop", "Movies", "Sports", "Gaming"]
 const players = ["Player 1", "Player 2", "Player 3", "Player 4"]
 
-export function ImpostorMockup() {
+export function BluffinMockup() {
   const [selectedCat, setSelectedCat] = useState(0)
 
   return (
@@ -11,7 +11,7 @@ export function ImpostorMockup() {
       <div className="w-full max-w-sm overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--card)]">
         {/* Header */}
         <div className="border-b border-[var(--border)] px-4 py-3">
-          <p className="font-[var(--font-display)] text-[12px] font-bold text-[var(--foreground)]">Impostor Who?</p>
+          <p className="font-[var(--font-display)] text-[12px] font-bold text-[var(--foreground)]">Bluffin</p>
           <p className="font-[var(--font-display)] text-[8px] text-[var(--muted-foreground)]">Secret word party game</p>
         </div>
 
@@ -60,7 +60,7 @@ export function ImpostorMockup() {
             </div>
             <div className="mt-1 flex items-center justify-between">
               <span className="font-[var(--font-mono)] text-[8px] text-[var(--muted-foreground)]">Languages</span>
-              <span className="font-[var(--font-mono)] text-[8px] font-medium text-[var(--foreground)]">20+</span>
+              <span className="font-[var(--font-mono)] text-[8px] font-medium text-[var(--foreground)]">16+</span>
             </div>
           </div>
 
